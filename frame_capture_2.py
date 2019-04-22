@@ -18,12 +18,15 @@ while cv2.waitKey(1):
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (8, 8))
     hsv_d = cv2.dilate(blur, kernel)
 
-    res = cv2.bitwise_and(frame,frame, mask= hsv_d)
+##    res = cv2.bitwise_and(frame,frame, mask= hsv_d)
+    cv2.rectangle(frame, (0, 0), (380, 280), (255,0,0), 2)
+    
 ##    hsv_d = cv2.resize(hsv_d, (64,48))
 
     cv2.imshow('Original',frame)
-    cv2.imshow('Mask',hsv_d)
-    cv2.imshow('res',res)
+    cv2.imshow('Mask',hsv_d[:280,:380])
+##    cv2.imshow('res',res)
+    
     
 
 cv2.destroyAllWindows()
